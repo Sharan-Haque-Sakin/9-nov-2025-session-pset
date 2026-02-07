@@ -1,21 +1,13 @@
-  // static credentials
-  const validUser = "nayer25";
-  const validPass = "jmc_2000";
-
   document.getElementById("loginBtn").addEventListener("click", function() {
-      const user = document.getElementById("username").value;
-      const pass = document.getElementById("password").value;
+      const category = document.getElementById("categories").value;
+      const fileName = category === "primary" ? "combi-pset-ghmo-raqin-tawhid.pdf" : "nt-pset-ghmo-ishtiaq-tawhid.pdf";
 
-      if (user === validUser && pass === validPass) {
-          downloadPset();
-      } else {
-          alert("Incorrect ID or password.");
-      }
+      downloadPset(fileName);
   });
 
-  function downloadPset() {
+  function downloadPset(fileName) {
       const link = document.createElement("a");
-      link.href = "pset.pdf";       // your file in same directory
-      link.download = "pset.pdf";   // name for download
+      link.href = fileName;       // file in same directory
+      link.download = fileName;   // name for download
       link.click();
   }
